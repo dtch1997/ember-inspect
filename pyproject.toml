@@ -1,0 +1,24 @@
+[project]
+name = "test-time-sae-steering"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Daniel Tan", email = "dtch1997@users.noreply.github.com"},
+]
+dependencies = ["easy-inspect>=0.1.0", "goodfire>=0.3.4", "python-dotenv>=1.0.1", "ipykernel>=6.29.5", "inspect-evals @ git+https://github.com/UKGovernmentBEIS/inspect_evals", "openai>=1.59.6"]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+vllm = [
+    "vllm>=0.6.6.post1",
+    "opencv-python>=4.10.0.84",
+]
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
