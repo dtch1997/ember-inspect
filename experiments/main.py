@@ -1,7 +1,8 @@
+# ruff: noqa: F401
 import os
 import json 
 
-from asyncio import new_event_loop
+from asyncio import new_event_loop, set_event_loop
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -74,6 +75,9 @@ def zero_shot_steering(base_model, description: str):
             model=variant,  # Model variant to use
         )
     except RuntimeError as e:
+        if "There is no current event loop" in str(e):
+            set_event_loop(new_event_loop())
+            return zero_shot_steering(base_model, description)
         raise e
     variant.set(edits)
     return variant
@@ -107,6 +111,9 @@ def few_shot_steering(base_model, examples: list[Sample]):
             model=variant,  # Model variant to use
         )
     except RuntimeError as e:
+        if "There is no current event loop" in str(e):
+            set_event_loop(new_event_loop())
+            return few_shot_steering(base_model, examples)
         raise e
     variant.set(edits)
     return variant

@@ -14,20 +14,15 @@ curr_dir = Path(__file__).parent.resolve()
 def get_score_and_metric(log: EvalLog) -> tuple[EvalScore, float]:
     """ Get the appropriate score and metric value for different types of tasks """
     # NOTE: This is needed because HumanEval has 4 scorers and different metrics from MMLU and TruthfulQA
-    if "humaneval" in log.eval.task:
+    if "mmlu_0_shot" in log.eval.task:
+        assert len(log.results.scores) == 1, f"Expected 1 score for task {log.eval.task}, got {len(log.results.scores)}"
         score = log.results.scores[0]
-        assert score.reducer == "mean"
+        value = score.metrics["accuracy"].value
+        return score, value
+    elif "mmlu_5_shot" in log.eval.task:
+        assert len(log.results.scores) == 1, f"Expected 1 score for task {log.eval.task}, got {len(log.results.scores)}"
+        score = log.results.scores[0]
         value = score.metrics["mean"].value
-        return score, value
-    elif "mmlu" in log.eval.task:
-        assert len(log.results.scores) == 1, f"Expected 1 score for task {log.eval.task}, got {len(log.results.scores)}"
-        score = log.results.scores[0]
-        value = score.metrics["accuracy"].value
-        return score, value
-    elif "truthfulqa" in log.eval.task:
-        assert len(log.results.scores) == 1, f"Expected 1 score for task {log.eval.task}, got {len(log.results.scores)}"
-        score = log.results.scores[0]
-        value = score.metrics["accuracy"].value
         return score, value
     else:
         raise ValueError(f"Unknown task: {log.eval.task}")
@@ -72,7 +67,7 @@ def load_results(results_dir: Path) -> pd.DataFrame:
 
 if __name__ == "__main__":
 
-    results_name = "logs"
+    results_name = "results"
 
     # cache the df in a file
     if (curr_dir / f"{results_name}.csv").exists():
@@ -95,9 +90,16 @@ if __name__ == "__main__":
     }
     df["model_id"] = df["model_id"].map(model_names_to_short_names)
 
+    task_names_to_short_names = {
+        "mmlu_0_shot": "mmlu",
+        "mmlu_5_shot": "mmlu",
+    }
+    df["task_name"] = df["task_name"].map(task_names_to_short_names)
+
     sns.set_theme(style="darkgrid")
     sns.barplot(data=df, x="model_id", y="score", hue="suffix")
     assert len(df["task_name"].unique()) == 1, "Expected only one task"
     plt.title(f"Evaluating SAE steering on {df['task_name'].unique()[0]}")
+    plt.legend(title="Steering Protocol", bbox_to_anchor=(1.05, 1), loc='upper left')
     plt.tight_layout()
     plt.savefig(curr_dir / "plot.png")

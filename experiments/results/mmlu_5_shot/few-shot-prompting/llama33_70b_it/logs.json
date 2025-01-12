@@ -1,12 +1,12 @@
 {
-  "2025-01-12T04-36-42-08-00_mmlu-0-shot_fyjPhRMWVTSz4mMQkaWwJt.eval": {
+  "2025-01-12T10-27-36-08-00_mmlu-5-shot_PsikMVVcGXqn5HJYF5fGdo.eval": {
     "version": 2,
     "status": "success",
     "eval": {
-      "run_id": "F77mde8cx4KKuEwgAGfQFH",
-      "created": "2025-01-12T04:36:42-08:00",
-      "task": "inspect_evals/mmlu_0_shot",
-      "task_id": "fyjPhRMWVTSz4mMQkaWwJt",
+      "run_id": "5ax9VLzZ5GUKu4bkUezVvz",
+      "created": "2025-01-12T10:27:36-08:00",
+      "task": "inspect_evals/mmlu_5_shot",
+      "task_id": "PsikMVVcGXqn5HJYF5fGdo",
       "task_version": 0,
       "task_attribs": {},
       "task_args": {
@@ -78,6 +78,11 @@
       "config": {
         "limit": 50
       },
+      "revision": {
+        "type": "git",
+        "origin": "git@github.com:dtch1997/test-time-sae-steering.git",
+        "commit": "3b481cf"
+      },
       "packages": {
         "inspect_ai": "0.3.57"
       }
@@ -86,14 +91,20 @@
       "name": "plan",
       "steps": [
         {
-          "solver": "multiple_choice",
+          "solver": "inspect_evals/mmlu_5_shot_solver",
+          "params": {}
+        },
+        {
+          "solver": "generate",
           "params": {
-            "cot": false
+            "kwargs": {
+              "max_tokens": 1
+            }
           }
         }
       ],
       "config": {
-        "temperature": 0.5
+        "temperature": 0.0
       }
     },
     "results": {
@@ -101,18 +112,18 @@
       "completed_samples": 50,
       "scores": [
         {
-          "name": "choice",
-          "scorer": "choice",
+          "name": "exact",
+          "scorer": "exact",
           "params": {},
           "metrics": {
-            "accuracy": {
-              "name": "accuracy",
-              "value": 0.44,
+            "mean": {
+              "name": "mean",
+              "value": 0.06,
               "options": {}
             },
             "stderr": {
               "name": "stderr",
-              "value": 0.07091242083423346,
+              "value": 0.033926691677251195,
               "options": {}
             }
           }
@@ -120,312 +131,262 @@
       ]
     },
     "stats": {
-      "started_at": "2025-01-12T04:36:42-08:00",
-      "completed_at": "2025-01-12T04:36:50-08:00",
+      "started_at": "2025-01-12T10:27:36-08:00",
+      "completed_at": "2025-01-12T10:27:44-08:00",
       "model_usage": {}
     },
     "reductions": [
       {
-        "scorer": "choice",
+        "scorer": "exact",
         "samples": [
           {
-            "value": 1.0,
-            "answer": "A",
-            "explanation": "ANSWER: A",
+            "value": 0,
+            "answer": "To",
             "sample_id": 1
           },
           {
             "value": 0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "answer": "##",
             "sample_id": 2
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "##",
             "sample_id": 3
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "To",
             "sample_id": 4
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "##",
             "sample_id": 5
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "To",
             "sample_id": 6
           },
           {
-            "value": 1.0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 0,
+            "answer": "To",
             "sample_id": 7
           },
           {
             "value": 0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "answer": "##",
             "sample_id": 8
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "I",
             "sample_id": 9
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "I",
             "sample_id": 10
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "To",
             "sample_id": 11
           },
           {
-            "value": 1.0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 0,
+            "answer": "To",
             "sample_id": 12
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "To",
             "sample_id": 13
           },
           {
-            "value": 1.0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 0,
+            "answer": "To",
             "sample_id": 14
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "##",
             "sample_id": 15
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "To",
             "sample_id": 16
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "To",
             "sample_id": 17
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "To",
             "sample_id": 18
           },
           {
-            "value": 1.0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "value": 0,
+            "answer": "I",
             "sample_id": 19
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "To",
             "sample_id": 20
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "##",
             "sample_id": 21
           },
           {
-            "value": 1.0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 0,
+            "answer": "To",
             "sample_id": 22
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "To",
             "sample_id": 23
           },
           {
-            "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "value": 1.0,
+            "answer": "##",
             "sample_id": 24
           },
           {
-            "value": 1.0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "value": 0,
+            "answer": "To",
             "sample_id": 25
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "##",
             "sample_id": 26
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "To",
             "sample_id": 27
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "To",
             "sample_id": 28
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "To",
             "sample_id": 29
           },
           {
-            "value": 1.0,
-            "answer": "A",
-            "explanation": "ANSWER: A",
+            "value": 0,
+            "answer": "Since",
             "sample_id": 30
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "##",
             "sample_id": 31
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "To",
             "sample_id": 32
           },
           {
-            "value": 0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 1.0,
+            "answer": "##",
             "sample_id": 33
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "To",
             "sample_id": 34
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "##",
             "sample_id": 35
           },
           {
-            "value": 1.0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 0,
+            "answer": "##",
             "sample_id": 36
           },
           {
             "value": 1.0,
-            "answer": "A",
-            "explanation": "ANSWER: A",
+            "answer": "##",
             "sample_id": 37
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "To",
             "sample_id": 38
           },
           {
-            "value": 1.0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "value": 0,
+            "answer": "##",
             "sample_id": 39
           },
           {
             "value": 0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "answer": "##",
             "sample_id": 40
           },
           {
             "value": 0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "answer": "##",
             "sample_id": 41
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "##",
             "sample_id": 42
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "To",
             "sample_id": 43
           },
           {
             "value": 0,
-            "answer": "D",
-            "explanation": "ANSWER: D",
+            "answer": "##",
             "sample_id": 44
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "To",
             "sample_id": 45
           },
           {
-            "value": 1.0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "value": 0,
+            "answer": "I",
             "sample_id": 46
           },
           {
-            "value": 1.0,
-            "answer": "B",
-            "explanation": "ANSWER: B",
+            "value": 0,
+            "answer": "##",
             "sample_id": 47
           },
           {
-            "value": 1.0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "value": 0,
+            "answer": "To",
             "sample_id": 48
           },
           {
             "value": 0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "answer": "##",
             "sample_id": 49
           },
           {
-            "value": 1.0,
-            "answer": "C",
-            "explanation": "ANSWER: C",
+            "value": 0,
+            "answer": "##",
             "sample_id": 50
           }
         ]

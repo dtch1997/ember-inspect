@@ -1,10 +1,10 @@
 {
-  "2025-01-12T10-14-16-08-00_mmlu-0-shot_J4cLX7jSps36nGVxcX9d2R.eval": {
+  "2025-01-12T10-27-07-08-00_mmlu-0-shot_J4cLX7jSps36nGVxcX9d2R.eval": {
     "version": 2,
-    "status": "cancelled",
+    "status": "success",
     "eval": {
-      "run_id": "5GPnWLxfcstSSegSniRDTQ",
-      "created": "2025-01-12T10:14:16-08:00",
+      "run_id": "o6mHiM7wmJrA4LADbRsL2f",
+      "created": "2025-01-12T10:27:07-08:00",
       "task": "inspect_evals/mmlu_0_shot",
       "task_id": "J4cLX7jSps36nGVxcX9d2R",
       "task_version": 0,
@@ -81,7 +81,7 @@
       "revision": {
         "type": "git",
         "origin": "git@github.com:dtch1997/test-time-sae-steering.git",
-        "commit": "00b6c17"
+        "commit": "3b481cf"
       },
       "packages": {
         "inspect_ai": "0.3.57"
@@ -101,10 +101,340 @@
         "temperature": 0.5
       }
     },
+    "results": {
+      "total_samples": 50,
+      "completed_samples": 50,
+      "scores": [
+        {
+          "name": "choice",
+          "scorer": "choice",
+          "params": {},
+          "metrics": {
+            "accuracy": {
+              "name": "accuracy",
+              "value": 0.38,
+              "options": {}
+            },
+            "stderr": {
+              "name": "stderr",
+              "value": 0.06934092056863769,
+              "options": {}
+            }
+          }
+        }
+      ]
+    },
     "stats": {
-      "started_at": "2025-01-12T10:14:16-08:00",
-      "completed_at": "2025-01-12T10:15:06-08:00",
+      "started_at": "2025-01-12T10:27:07-08:00",
+      "completed_at": "2025-01-12T10:27:36-08:00",
       "model_usage": {}
-    }
+    },
+    "reductions": [
+      {
+        "scorer": "choice",
+        "samples": [
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 2",
+            "sample_id": 1
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 2
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 7 is not an option, but 7 is the correct answer because the sum of the faces is equal to 7. \n\nLet's try again: \nThe sum of the faces is equal to 7. \n7 is not an option, but 7 is the correct answer. \nSo we need to find an option that is equal to 7. \n7 = 7, but there is no option that is equal to 7. \nHowever, we can try to find an option that is close to 7. \nThe option that is close to 7 is 7 - 2 = 5, but there is no option that is equal to 5. \nHowever, we can try to find an option that is close to 5. \nThe option that is close to 5 is 5 + 2 = 7, but there is no option that is equal to 7. \nHowever, we can try to find an option that is close to 7. \nThe option that is close to 7 is 7 - 2 = 5, but there is no option that is equal to 5. \nHowever, we can try to find an option that is close to 5. \nThe option that is close to 5 is 5 + 2 = 7, but there is no option that is equal to 7. \nHowever, we can try to find an option that is close to 7. \nThe option that is close to 7 is 7 - 2 = 5, but there is no option that is equal to 5. \nHowever, we can try to find an option that is close to 5. \nThe option that is close to 5 is 5 + 2 = 7, but there is no option that is equal to 7. \nHowever, we can try to find an option that is close to 7. \nThe option that is close to 7 is 7 - 2 = 5, but there is no option that is equal to 5. \nHowever, we can try to find an option that is close to 5. \nThe option that is close to 5 is 5 + 2 = 7, but there is no option that is equal to 7. \nHowever, we can try to find an option that is close to 7. \nThe option that is close to 7 is 7 - 2 =",
+            "sample_id": 3
+          },
+          {
+            "value": 1.0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 4
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 5
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 6
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 7
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 8
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 9
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 8",
+            "sample_id": 10
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 11
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 12
+          },
+          {
+            "value": 1.0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 13
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 14
+          },
+          {
+            "value": 1.0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 15
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 16
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 17
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 18
+          },
+          {
+            "value": 1.0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 19
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 20
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 21
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 22
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 23
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 24
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 2",
+            "sample_id": 25
+          },
+          {
+            "value": 1.0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 26
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 27
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 28
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 29
+          },
+          {
+            "value": 1.0,
+            "answer": "A",
+            "explanation": "ANSWER: A",
+            "sample_id": 30
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 31
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 32
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 12",
+            "sample_id": 33
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "To find the mean score, we need to add up all the scores and then divide by the number of scores.\n\nThe scores are: 98, 97, 92, 85, and 93.\n\nFirst, we add up the scores: \n98 + 97 = 195\n195 + 92 = 287\n287 + 85 = 372\n372 + 93 = 465\n\nThen, we divide the sum by the number of scores: \n465 ÷ 5 = 93\n\nSo, the mean score is 93.\n\nANSWER: 93",
+            "sample_id": 34
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 35
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 36
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 20",
+            "sample_id": 37
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 38
+          },
+          {
+            "value": 1.0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 39
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 40
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 41
+          },
+          {
+            "value": 0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 42
+          },
+          {
+            "value": 1.0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 43
+          },
+          {
+            "value": 0,
+            "answer": "D",
+            "explanation": "ANSWER: D",
+            "sample_id": 44
+          },
+          {
+            "value": 0,
+            "answer": "",
+            "explanation": "ANSWER: 1",
+            "sample_id": 45
+          },
+          {
+            "value": 1.0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 46
+          },
+          {
+            "value": 1.0,
+            "answer": "B",
+            "explanation": "ANSWER: B",
+            "sample_id": 47
+          },
+          {
+            "value": 1.0,
+            "answer": "C",
+            "explanation": "To find the answer, we need to divide both sides of the equation by 2.\n\nThe first half of the race is 13.1 miles (since 26.2 ÷ 2 = 13.1).\n\nTo find the time it takes to complete the first half of the race, we need to divide the distance by the speed.\n\nTime = distance ÷ speed\nTime = 13.1 ÷ 8\nTime = 1.65\n\nTo find the time it takes to complete the second half of the race, we need to divide the distance by the speed.\n\nTime = distance ÷ speed\nTime = 13.1 ÷ 6\nTime = 2.18\n\nTo find the total time, we need to add the time it takes to complete the first half and the second half.\n\nTotal time = 1.65 + 2.18\nTotal time = 3.83\n\nSince 3.83 is approximately equal to 3.82, the correct answer is:\n\nANSWER: C",
+            "sample_id": 48
+          },
+          {
+            "value": 0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 49
+          },
+          {
+            "value": 1.0,
+            "answer": "C",
+            "explanation": "ANSWER: C",
+            "sample_id": 50
+          }
+        ]
+      }
+    ]
   }
 }

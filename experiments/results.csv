@@ -1,0 +1,7 @@
+task_name,model_id,suffix,score,mean,stderr,accuracy
+mmlu_5_shot,ember/meta-llama/Meta-Llama-3.1-8B-Instruct,few-shot-prompting,0.0,0.0,0.0,
+mmlu_5_shot,ember/meta-llama/Llama-3.3-70B-Instruct,few-shot-prompting,0.06,0.06,0.033926691677251195,
+mmlu_0_shot,ember/meta-llama/Meta-Llama-3.1-8B-Instruct,zero-shot-steering,0.4,,0.06998542122237651,0.4
+mmlu_0_shot,ember/meta-llama/Llama-3.3-70B-Instruct,zero-shot-steering,0.38,,0.06934092056863769,0.38
+mmlu_0_shot,ember/meta-llama/Meta-Llama-3.1-8B-Instruct,zero-shot,0.5,,0.07142857142857142,0.5
+mmlu_0_shot,ember/meta-llama/Llama-3.3-70B-Instruct,zero-shot,0.58,,0.07050835816716038,0.58
