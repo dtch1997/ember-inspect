@@ -12,7 +12,7 @@ from inspect_ai import eval_set, Task
 from inspect_ai.dataset import Sample
 from inspect_evals.mmlu.mmlu import mmlu_0_shot, mmlu_5_shot, format_mmlu_question, Choices
 
-import ember_inspect.provider as provider # noqa: F401
+from ember_inspect import eval_set_variant
 from ember_inspect.controller import write_controller_params
 
 curr_dir = Path(__file__).parent
@@ -43,13 +43,11 @@ def evaluate_variant(
 ) -> None:
     task_name = task.name.replace("inspect_evals/", "")
     controller_params = variant.controller.json()
-    # Set the controller params
-    write_controller_params(controller_params)
     log_dir = (results_dir / task_name / suffix / short_names[variant.base_model]).absolute()
     # NOTE: we use eval set because it skips the run if previous results have been completed
     # This saves on API requests
-    eval_set(
-        model = f"ember/{variant.base_model}",
+    eval_set_variant(
+        variant = variant,
         tasks = [task],
         log_dir = str(log_dir),
         limit=limit
