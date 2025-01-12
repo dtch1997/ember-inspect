@@ -44,6 +44,12 @@ It is also possible to look at the completions:
 inspect view --logdir results
 ```
 
+## Analysis
+
+Why is few-shot prompting so horrifically bad? It looks like the model simply can't follow the prompt template that well.
+
+![plot](figures/few_shot_prompting_summary.png)
+
 ## Open Questions / Future Work
 
 Why is zero-shot steering worse than no steering? Some hypotheses
@@ -52,4 +58,7 @@ Why is zero-shot steering worse than no steering? Some hypotheses
 - SAE feature steering interferes with general instruction following.
 - SAE feature steering interferes with the specific prompt template used.
 
-It may also be important to optimize the controller hyperparameters.
+Future work
+
+- Try optimizing the controller hyperparameters
+- Try a different task
