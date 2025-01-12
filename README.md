@@ -1,6 +1,6 @@
 # Ember-Inspect
 
-![plot](experiments/plot.png)
+A library for using Goodfire Ember models with Inspect AI.
 
 ## Install
 
