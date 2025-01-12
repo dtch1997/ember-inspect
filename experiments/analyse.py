@@ -2,6 +2,8 @@
 
 import json
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 from tqdm import tqdm
 from pathlib import Path
@@ -85,3 +87,17 @@ if __name__ == "__main__":
 
     # Print the first 5 rows of the dataframe
     print(df.head())
+
+    # Plot the results
+    model_names_to_short_names = {
+        "ember/meta-llama/Meta-Llama-3.1-8B-Instruct": "Llama 3.1 8B Instruct",
+        "ember/meta-llama/Llama-3.3-70B-Instruct": "Llama 3.3 70B Instruct",
+    }
+    df["model_id"] = df["model_id"].map(model_names_to_short_names)
+
+    sns.set_theme(style="darkgrid")
+    sns.barplot(data=df, x="model_id", y="score", hue="suffix")
+    assert len(df["task_name"].unique()) == 1, "Expected only one task"
+    plt.title(f"Evaluating SAE steering on {df['task_name'].unique()[0]}")
+    plt.tight_layout()
+    plt.savefig(curr_dir / "plot.png")
