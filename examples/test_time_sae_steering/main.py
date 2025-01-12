@@ -1,4 +1,3 @@
-# ruff: noqa: F401
 import os
 import json 
 
@@ -7,7 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from goodfire import Client, Variant
-from inspect_ai import eval_set, Task
+from inspect_ai import Task
 
 from inspect_ai.dataset import Sample
 from inspect_evals.mmlu.mmlu import mmlu_0_shot, mmlu_5_shot, format_mmlu_question, Choices
