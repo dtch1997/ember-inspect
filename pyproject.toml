@@ -16,7 +16,6 @@ license = {text = "MIT"}
 
 [project.optional-dependencies]
 examples = [
-    "inspect-evals @ git+https://github.com/UKGovernmentBEIS/inspect_evals@b9022791af45df5af7ab788874f0e50790143c32",
     "ipykernel>=6.29.5",
     "python-dotenv>=1.0.1",
 ]

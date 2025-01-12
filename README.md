@@ -7,6 +7,8 @@ A library for using Goodfire Ember models with Inspect AI.
 ```bash
 # Install optional dependencies for running examples
 pip install ember-inspect[examples]
+# Install inspect-evals separately because it's not available on PyPI
+pip install "inspect-evals @ git+https://github.com/UKGovernmentBEIS/inspect_evals"
 ```
 
 ## Usage
