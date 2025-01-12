@@ -12,13 +12,12 @@ from inspect_ai import eval_set, Task
 from inspect_ai.dataset import Sample
 from inspect_evals.mmlu.mmlu import mmlu_0_shot, mmlu_5_shot, format_mmlu_question, Choices
 
-import test_time_sae_steering.ember # noqa: F401
-from test_time_sae_steering.ember.controller import write_controller_params
+import ember_inspect.provider as provider # noqa: F401
+from ember_inspect.controller import write_controller_params
 
 curr_dir = Path(__file__).parent
-project_dir = curr_dir.parent
 
-load_dotenv(project_dir / ".env")
+load_dotenv(curr_dir / ".env")
 GOODFIRE_API_KEY = os.getenv("GOODFIRE_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = Client(api_key=GOODFIRE_API_KEY)

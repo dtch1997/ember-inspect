@@ -1,12 +1,18 @@
 [project]
-name = "test-time-sae-steering"
+name = "ember-inspect"
 version = "0.1.0"
-description = "Default template for PDM package"
+description = "Use Goodfire Ember API with UK-AISI Inspect AI"
 authors = [
     {name = "Daniel Tan", email = "dtch1997@users.noreply.github.com"},
 ]
-dependencies = ["easy-inspect>=0.1.0", "goodfire>=0.3.4", "python-dotenv>=1.0.1", "ipykernel>=6.29.5", "inspect-evals @ git+https://github.com/UKGovernmentBEIS/inspect_evals", "openai>=1.59.6"]
-requires-python = ">=3.12"
+dependencies = [
+    "goodfire>=0.3.4",
+    "python-dotenv>=1.0.1",
+    "ipykernel>=6.29.5",
+    "inspect-evals @ git+https://github.com/UKGovernmentBEIS/inspect_evals@b9022791af45df5af7ab788874f0e50790143c32",
+    "openai>=1.59.6"
+]
+requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
 

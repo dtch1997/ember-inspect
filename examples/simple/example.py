@@ -1,16 +1,3 @@
-# Ember-Inspect
-
-![plot](experiments/plot.png)
-
-## Install
-
-```bash
-pip install -e .
-```
-
-## Usage
-
-```python
 import os
 import dotenv
 
@@ -39,16 +26,3 @@ eval_variant(
     tasks = [mmlu_0_shot(subjects=["college_biology"])],
     limit = 5,
 )
-```
-
-## Examples
-
-See `examples/` for examples of how to use Ember-Inspect.
-
-- `examples/simple`: A simple demo of Ember-Inspect
-- `examples/test_time_sae_steering/`: Test-time SAE Steering
-
-## FAQ
-
-Q: My Inspect tasks aren't completing when I use Ember models.
-A: This may be due to HTTP rate limits. Wait a minute and try again.
