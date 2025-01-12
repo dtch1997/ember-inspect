@@ -21,6 +21,9 @@ vllm = [
     "vllm>=0.6.6.post1",
     "opencv-python>=4.10.0.84",
 ]
+dev = [
+    "pytest>=8.3.4",
+]
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
