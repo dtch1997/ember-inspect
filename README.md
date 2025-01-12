@@ -51,7 +51,7 @@ eval_variant(
 See `examples/` for examples of how to use Ember-Inspect.
 
 - `examples/simple`: A simple demo of Ember-Inspect
-- `examples/test_time_sae_steering/`: Test-time SAE Steering
+- `examples/test_time_sae_steering/`: Experimenting with test-time SAE Steering for improving model performance on MMLU
 
 ## FAQ
 

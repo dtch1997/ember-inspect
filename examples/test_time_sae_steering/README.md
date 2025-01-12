@@ -10,6 +10,15 @@ We use the [GoodFire Ember API](https://goodfire.ai) to get the SAE features for
 We use the auto-steering API to automatically select SAE features based on the prompt. 
 We use the [Inspect AI](https://inspect.ai-safety-institute.org.uk/) library to evaluate the performance of the model on a task.
 
+## Usage
+
+```bash
+# Run the steering experiments
+python main.py 
+# Parse the results and plot figure
+python analyse.py
+```
+
 ## Steering Protocols
 
 Current implemented:
@@ -25,7 +34,7 @@ Planned steering protocols:
 
 ## Results
 
-![plot](experiments/plot.png)
+![plot](plot.png)
 
 At the moment, steering decreases the performance of the model on the task.
 
