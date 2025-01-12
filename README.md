@@ -1,5 +1,7 @@
 # Ember-Inspect
 
+![ci](https://github.com/dtch1997/ember-inspect/actions/workflows/ci.yaml/badge.svg)
+
 A library for using Goodfire Ember models with Inspect AI.
 
 ## Install
