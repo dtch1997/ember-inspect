@@ -1,0 +1,110 @@
+{
+  "2025-01-12T10-14-16-08-00_mmlu-0-shot_J4cLX7jSps36nGVxcX9d2R.eval": {
+    "version": 2,
+    "status": "cancelled",
+    "eval": {
+      "run_id": "5GPnWLxfcstSSegSniRDTQ",
+      "created": "2025-01-12T10:14:16-08:00",
+      "task": "inspect_evals/mmlu_0_shot",
+      "task_id": "J4cLX7jSps36nGVxcX9d2R",
+      "task_version": 0,
+      "task_attribs": {},
+      "task_args": {
+        "subjects": [
+          "high_school_mathematics"
+        ]
+      },
+      "dataset": {
+        "name": "cais/mmlu-high_school_mathematics",
+        "location": "cais/mmlu",
+        "samples": 270,
+        "sample_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50
+        ],
+        "shuffled": false
+      },
+      "model": "ember/meta-llama/Llama-3.3-70B-Instruct",
+      "model_base_url": "https://api.goodfire.ai/api/inference/v1",
+      "model_args": {},
+      "config": {
+        "limit": 50
+      },
+      "revision": {
+        "type": "git",
+        "origin": "git@github.com:dtch1997/test-time-sae-steering.git",
+        "commit": "00b6c17"
+      },
+      "packages": {
+        "inspect_ai": "0.3.57"
+      }
+    },
+    "plan": {
+      "name": "plan",
+      "steps": [
+        {
+          "solver": "multiple_choice",
+          "params": {
+            "cot": false
+          }
+        }
+      ],
+      "config": {
+        "temperature": 0.5
+      }
+    },
+    "stats": {
+      "started_at": "2025-01-12T10:14:16-08:00",
+      "completed_at": "2025-01-12T10:15:06-08:00",
+      "model_usage": {}
+    }
+  }
+}

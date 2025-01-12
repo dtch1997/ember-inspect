@@ -1,6 +1,7 @@
 import os
 import json 
 
+from asyncio import new_event_loop
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -8,7 +9,7 @@ from goodfire import Client, Variant
 from inspect_ai import eval_set, Task
 
 from inspect_ai.dataset import Sample
-from inspect_evals.mmlu.mmlu import mmlu_0_shot, mmlu_5_shot
+from inspect_evals.mmlu.mmlu import mmlu_0_shot, mmlu_5_shot, format_mmlu_question, Choices
 
 import test_time_sae_steering.ember # noqa: F401
 from test_time_sae_steering.ember.controller import write_controller_params
@@ -22,7 +23,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = Client(api_key=GOODFIRE_API_KEY)
 
 models = [
-    "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    # "meta-llama/Meta-Llama-3.1-8B-Instruct",
     "meta-llama/Llama-3.3-70B-Instruct",
 ]
 # Limit in order to avoid rate limits
@@ -67,25 +68,57 @@ def zero_shot(base_model):
 
 def zero_shot_steering(base_model, description: str):
     variant = Variant(base_model = base_model)
-    edits = client.features.AutoSteer(
-        specification=description,  # Natural language description
-        model=variant,  # Model variant to use
-    )
+    try:
+        edits = client.features.AutoSteer(
+            specification=description,  # Natural language description
+            model=variant,  # Model variant to use
+        )
+    except RuntimeError as e:
+        raise e
     variant.set(edits)
     return variant
 
-def few_shot_steering(base_model, examples: list[str]):
-    variant = Variant(base_model = base_model)
-    edits = client.features.AutoSteer(
-        specification=examples,  # Natural language description
-        model=variant,  # Model variant to use
+FEW_SHOT_STEERING_TEMPLATE = r"""
+Solve the following questions:
+
+{examples}
+""".strip()
+
+def make_few_shot_steering_prompt(examples: list[Sample]) -> str:
+    questions = "\n\n".join(
+        [
+            format_mmlu_question(
+                question=str(sample.input),
+                choices=Choices(
+                    sample.choices if sample.choices is not None else []
+                ),
+                answer=str(sample.target),
+            )
+            for sample in examples
+        ]
     )
+    return FEW_SHOT_STEERING_TEMPLATE.format(examples=questions)
+
+def few_shot_steering(base_model, examples: list[Sample]):
+    variant = Variant(base_model = base_model)
+    try:
+        edits = client.features.AutoSteer(
+            specification=make_few_shot_steering_prompt(examples),  # Natural language description
+            model=variant,  # Model variant to use
+        )
+    except RuntimeError as e:
+        raise e
     variant.set(edits)
     return variant
 
 def get_few_shot_examples(task: Task) -> list[Sample]:
     # TODO: check we don't leak any few-shot examples
-    return task.dataset.samples[:5]
+    # TODO: un-hardcode the subject
+    samples = task.dataset.filter(
+        lambda sample: sample.metadata is not None
+        and sample.metadata["subject"] == "high_school_mathematics"
+    )
+    return samples[:5]
 
 if __name__ == "__main__":
 
@@ -102,10 +135,11 @@ if __name__ == "__main__":
         variant = zero_shot_steering(model, "Solve a high school mathematics question")
         evaluate_variant(task, variant, suffix = "zero-shot-steering", limit = limit)
 
-        # 3. Few-shot steering
-        few_shot_examples = get_few_shot_examples(task)
-        variant = few_shot_steering(model, few_shot_examples)
-        evaluate_variant(task, variant, suffix = "few-shot-steering", limit = limit)
+        # TODO: few-shot steering times out
+        # # 3. Few-shot steering
+        # few_shot_examples = get_few_shot_examples(task)
+        # variant = few_shot_steering(model, few_shot_examples)
+        # evaluate_variant(task, variant, suffix = "few-shot-steering", limit = limit)
 
         # 4. Few-shot prompting
         # Few-shot prompting
@@ -113,8 +147,8 @@ if __name__ == "__main__":
         variant = zero_shot(model)
         evaluate_variant(task, variant, suffix = "few-shot-prompting", limit = limit)
 
-        # 5. Few-shot prompting and steering
-        # Few-shot steering 
-        variant = few_shot_steering(model, few_shot_examples)
-        evaluate_variant(task, variant, suffix = "few-shot-prompting-steering", limit = limit)
+        # # 5. Few-shot prompting and steering
+        # # Few-shot steering 
+        # variant = few_shot_steering(model, few_shot_examples)
+        # evaluate_variant(task, variant, suffix = "few-shot-prompting-steering", limit = limit)
 
